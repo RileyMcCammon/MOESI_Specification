@@ -14,7 +14,7 @@ vars == << cores, data >>
 
 Operations == {"read", "write"}
 
-DataSet == {0..512}
+DataSet == 0..512
 
 ProcSet == (0..NumCores-1)
 
@@ -85,6 +85,7 @@ Spec == Init /\ [][Next]_vars
 TypeOK == /\ \A i \in ProcSet: cores[i].state \in {"MState", "OState", "EState", "SState", "IState"}
           /\ \A i \in ProcSet: cores[i].data \in DataSet
           /\ data \in DataSet
+          /\ data \in Nat
     
 PermittedStates(state, permitted) == \A i, j \in ProcSet : cores[i].state = state /\ j /= i
             => cores[j].state \in permitted

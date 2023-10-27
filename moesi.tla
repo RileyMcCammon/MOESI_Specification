@@ -94,7 +94,7 @@ MStatePermits == PermittedStates("MState", {"IState"})
 OStatePermits == PermittedStates("OState", {"SState", "IState"})
 EStatePermits == PermittedStates("EState", {"IState"})
 SStatePermits == PermittedStates("SState", {"OState", "SState", "IState"})
-IStatePermits == PermittedStates("SState", {"MState", "OState", "EState", "SState", "IState"})
+IStatePermits == PermittedStates("IState", {"MState", "OState", "EState", "SState", "IState"})
 
 SharedOrOwnedStateImpliesEquivalentData == \A i, j \in ProcSet : 
                                         /\ cores[i].state \in {"OState", "SState"}
